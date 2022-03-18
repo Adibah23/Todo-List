@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>my todo list</title>
+  <meta name="description" content="A simple todo web application using flask.">
+  <meta name="author" content="Adibah Nordin">
+
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/todo.css">
+  
+  <script src="static/js/todo.js"></script>
+
+</head>
+
+<body>
+  <div class="container-fluid center">
+    <div class="row center">
+      <div class="col-md-4 offset-md-4 text-center center adjustsize">
+
+        <div class="todo-div p-5 glass">
+            <h2>my todo list</h2>
+
+            <form action="/add" method="POST">
+              <div class="d-flex mt-5">
+                <input type="text" class="form-control text-add" name="new-todo" placeholder="write your todo here">
+                <button type="submit" class="btn-inside purple-hover"><i class="fas fa-plus-circle"></i></button>
+              </div>
+            </form>
+
+            <form action="/search" method="POST">
+              <div class="d-flex mt-2">
+                <input type="text" class="form-control text-add" name="keyword" placeholder="enter keywords to search">
+                <button type="submit" class="btn-inside purple-hover"><i class="fa-solid fa-magnifying-glass"></i></button>
+              </div>
+            </form>
+            
+            <ul class="mt-5">
+              {% for todo in todos: %}
+                  <li class="mb-2">
+                    {% set itemid = todo['_id']%}
+
+                    {%if todo['complete'] == True: %}
+                      <a href="/update-status/{{todo['_id']}}/{{todo['complete']}}"><i class="fa-solid fa-circle-check done purple-hover"></i></a>
+                      <input type="text" class="input-text strike" name="update-todo" value="{{todo['text']}}" id="input{{ loop.index }}" onkeypress="handleEnter(event, '{{itemid}}', 'input{{ loop.index }}')" disabled>
+                    {% else: %}
+                      <a href="/update-status/{{todo['_id']}}/{{todo['complete']}}"><i class="fa-solid fa-circle-check notdone purple-hover"></i></a>
+                      <input type="text" class="input-text" name="update-todo" value="{{todo['text']}}" id="input{{ loop.index }}" onkeypress="handleEnter(event, '{{itemid}}', 'input{{ loop.index }}')"  disabled>
+                    {% endif %}
+
+                    <button type="button" onclick="toggleEnable('input{{ loop.index }}')"><i class="fa-solid fa-pen-to-square purple-hover"></i></button>
+                    <a href="/delete/{{todo['_id']}}"><i class="fa-solid fa-trash-can trash-hover"></i></a>
+                </li>
+              {% endfor %}
+            </ul>
+
+            <button type="button" class="glass-button mt-4" onclick="deleteAllConfirm()">delete all</button>
+            <a href="/sortcomplete" class="glass-button">sort list</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</html>

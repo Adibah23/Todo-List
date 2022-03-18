@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+* {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+    user-select: none; /* supported by Chrome and Opera */
+   -webkit-user-select: none; /* Safari */
+   -khtml-user-select: none; /* Konqueror HTML */
+   -moz-user-select: none; /* Firefox */
+   -ms-user-select: none; /* Internet Explorer/Edge */
+}
+
+html, body {
+	font-family: 'Lato', sans-serif;
+	height:100%;
+    overflow: auto;
+    overflow-x: hidden;
+    background: #654ea3;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #eaafc8, #654ea3);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #eaafc8, #654ea3); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.center {
+    padding: 55px 0;
+}
+
+.todo-div{
+    background-color: white;
+	color: black;
+    box-shadow:-13px -13px 0px 0px rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+}
+
+.todo-div h2{
+    font-family: 'Pacifico', cursive;
+    font-size: 2.5rem;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffffd5, 0px 0px 15px #ffffffe1;
+    color: rgb(0, 0, 0);
+    text-align: center;
+    animation: blink 12s infinite;
+    -webkit-animation: blink 12s infinite;
+}
+
+.glass {
+    background-color: rgba(255, 255, 255, 0.5);  
+    backdrop-filter: blur(3rem);
+}
+
+li {
+    text-align: center;
+    margin-left: -5rem;
+    margin-right: -3rem;
+	list-style: none;
+	padding:1.1rem 1rem;
+	align-items:center;
+	background:rgba(240, 225, 225, 0.2);
+}
+
+li:hover{
+    background: rgba(255, 255, 255, 0.89);
+}
+
+.input-text{
+    background: transparent;
+    border: none;
+    min-width: 75%;
+    max-width: 75%;
+    color: black;
+    margin-right: 20px;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+
+.input-text:focus{
+    color: #520fee;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.notdone{
+    color: black;
+    margin-right: 10px;
+    font-size: 1.4rem;
+}
+
+.done{
+    color: #654ea3;
+    margin-right: 10px;
+    font-size: 1.4rem;
+}
+
+.strike{
+    text-decoration: line-through;
+    text-decoration-color: #654ea3;
+    color:#654ea3;
+    text-decoration-thickness: 2.5px;
+}
+
+.btn-inside{
+    margin-left: -2.2rem;
+    margin-top: -0.2rem;
+    font-size: 1.8rem;
+    height: 0;
+    width: 0;
+}
+
+input[type="text"]:focus{
+    box-shadow: 0 0px 0px rgba(0, 0, 0, 0.075) inset, 0 0 0px rgba(126, 239, 104, 0.6);
+    outline: 0 none;
+}
+
+a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-size: 1.3rem;
+}
+
+a:hover{
+    color: black;
+}
+
+button{
+    color: rgb(0, 0, 0);
+    background: transparent;
+    border: none;
+    font-size: 1.4rem;
+    margin-right: 0.25rem;
+}
+
+.text-add{
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.text-add:focus{
+    border-color: transparent;
+}
+
+/* animation */
+.animate-right{
+    position:relative;
+    animation:animateright 0.4s
+}
+@keyframes animateright
+{
+    from{right:-300px;opacity:0} to{right:0;opacity:1}
+}
+
+.glass-button {
+    display: inline-block;
+    padding: 10px 10px;
+    border: 0;
+    text-decoration: none;
+    border-radius: 10px;
+    border: 1px solid rgba(165, 26, 67, 0.1);
+    backdrop-filter: blur(30px);
+    color: rgba(20, 20, 20, 0.8);
+    font-size: 14px;
+    letter-spacing: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #fad0c4;
+    background-image: linear-gradient(315deg, #ebb5d6 0%, #e8a6fce0 74%);
+    box-shadow: 0 2px 2px #888888ef;
+    transition: color 0.3s, background-image 0.5s, ease-in-out;
+
+}
+ 
+.glass-button:hover {
+    color: white;
+}
+
+.trash-hover:hover{
+    color: #f04141e8;
+}
+
+.purple-hover:hover{
+    color: #654ea3;
+}
+
+@media only screen and (min-width: 1251px) and (max-width: 1381px){
+
+    .adjustsize{
+        width: 600px;
+        margin-left: 25%;
+    }
+}
+
+@media only screen and (min-width: 980px) and (max-width: 1252px){
+
+    .adjustsize{
+        width: 600px;
+        margin-left: 20%;
+    }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 981px){
+
+    .adjustsize{
+        width: 600px;
+        margin-left: 18%;
+    }
+}
